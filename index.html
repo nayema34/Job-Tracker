@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" class="bg-base-300">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Manager</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/0398fc8d82.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <section class="w-9/12 mx-auto mt-10 p-5">
+
+        <h1 class="text-4xl font-bold">Job Application Tracker</h1>
+
+        <div class="flex gap-6 justify-between w-full">
+
+            <div class="flex flex-col w-[400px] h-[100px] p-5 mt-6 bg-white rounded-md border border-[#666]">
+                <p>Total</p>
+                <p id="count-total" class="mt-3 text-2xl font-bold">0</p>
+            </div>
+
+            <div class="flex flex-col w-[400px] h-[100px] p-5 mt-6 bg-white rounded-md border border-[#666]">
+                <p>Interview</p>
+                <p id="count-interview" class="mt-3 text-2xl text-green-400 font-bold">0</p>
+            </div>
+
+            <div class="flex flex-col w-[400px] h-[100px] p-5 mt-6 bg-white rounded-md border border-[#666]">
+                <p>Rejected</p>
+                <p id="count-rejected" class="mt-3 text-2xl text-red-500 font-bold">0</p>
+            </div>
+
+        </div>
+
+        <hr class="mt-6" />
+    </section>
+
+
+    <section class="w-9/12 mx-auto p-5 text-[#002C5C]">
+
+        <div class="flex justify-between">
+            <p class="text-xl font-bold">Available Jobs</p>
+            <p><span id="visible-count">0</span> jobs</p>
+        </div>
+
+        <!-- Filter Buttons (DaisyUI classes preserved) -->
+        <div class="flex gap-5 mt-5">
+            <button id="show-all" class="btn btn-primary">All</button>
+            <button id="show-interview" class="btn btn-soft">Interview</button>
+            <button id="show-rejected" class="btn btn-soft">Rejected</button>
+        </div>
+
+        <div id="job-wrapper" class="flex flex-col gap-7">
+
+            <!-- JOB ITEM -->
+            <div class="job-item p-5 mt-5 bg-indigo-100 rounded-md border-l-4 border-[#002C5C] shadow-md">
+
+                <div class="flex justify-between">
+                    <div>
+                        <h2 class="text-lg font-bold">Mobile First Corp</h2>
+                        <p class="text-[#64748B]">React Native Developer</p>
+                    </div>
+
+                    <i class="remove-card fa-regular fa-trash-can text-[#64748B] p-3 bg-[#F1F2F4] rounded-full"></i>
+                </div>
+
+                <!-- status labels -->
+                <button
+                    class="state-interview hidden btn btn-primary bg-transparent shadow-none mt-4 px-3 py-2 text-green-400 border border-green-400">INTERVIEW</button>
+
+                <button
+                    class="state-reject hidden btn btn-primary bg-transparent shadow-none mt-4 px-3 py-2 text-red-400 border border-red-400">REJECTED</button>
+
+                <p
+                    class="state-none px-3 py-2 mt-5 text-sm font-semibold bg-[#F1F2F4] rounded-md w-[113px] text-[#002C5C]">
+                    NOT APPLIED
+                </p>
+
+                <!-- action buttons (DaisyUI preserved) -->
+                <div class="flex gap-4 mt-5">
+
+                    <button
+                        class="btn btn-primary btn-interview bg-transparent shadow-none px-3 py-2 text-green-400 border border-green-400">
+                        INTERVIEW
+                    </button>
+
+                    <button
+                        class="btn btn-primary btn-reject bg-transparent shadow-none px-3 py-2 text-red-400 border border-red-400">
+                        REJECT
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div id="no-data" class="hidden text-center items-center h-[252px] mt-34 mx-auto w-auto">
+        <img class="mx-auto" src="./Images/jobs.png" alt="">
+        <h2 class="text-2xl font-bold mt-5">No Jobs Available</h2>
+        <p class="mt-4">Check back soon for new job opportunities</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
